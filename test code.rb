@@ -1,3 +1,4 @@
 a = Board.new
-a.place_bombs
-p a
+a[0][0] = Tile.new(false)
+
+

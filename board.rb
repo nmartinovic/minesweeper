@@ -1,11 +1,12 @@
 require 'byebug'
+require_relative 'tile.rb'
 
 class Board
     attr_reader :grid
     attr_writer :grid
 
     def self.create_grid
-        grid = Array.new(9) {Array.new(9,'*')}
+        grid = Array.new(9) { Array.new(9,'*') }
         while grid.flatten.count('b') <= 10
             row = rand(0...9)
             col = rand(0...9)
@@ -20,11 +21,13 @@ class Board
     end
 
     def []=(pos, value)
-        @grid[pos[0]][pos[1]] = value
+        x, y = pos[0],pos[1]
+        @grid[x][y] = value
     end
 
     def [](pos)
-        @grid[pos[0]][pos[1]]
+        x, y = pos[0],pos[1]
+        @grid[x][y]
     end
 
 end
